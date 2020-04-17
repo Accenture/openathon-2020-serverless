@@ -15,7 +15,7 @@ Este usuario será eliminado al finalizar las actividades y por razones de segur
 
 ### ¿Cómo me conecto haciendo uso del usuario de formación?
 
-Para acceder con nuestro usuario de formación será necesario abrir la siguiente [url](https://go.accenture.com/aws_login).
+Para acceder con nuestro usuario de formación, el enlace está en la Wiki del grupo de Teams.
 
 Deberás acceder directamente, aunque si ya tenías un rol previo aparecerá una ventana de selección de rol. Seleccionaremos el rol DevOpenathon. Este es el rol que tendremos todos asignado.
 
