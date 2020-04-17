@@ -1,0 +1,7 @@
+{
+    "apiURL": "YOUR_API_URL",
+    "apiKey": "YOUR_API_KEY",
+    "cognitoRegion": "YOUR_COGNITO_REGION",
+    "userPoolId": "YOUR_USER_POOL_ID",
+    "userPoolWebClientId": "YOUR_USER_POOL_CLIENT_ID"
+}
