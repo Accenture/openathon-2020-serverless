@@ -203,7 +203,7 @@ Para probar cada endpoint:
 
 > :warning: **La api puede tardar un rato en desplegarse en las cuentas de formación. Si en Postman os indican que no hubo respuesta, esperar un poco y volver a probar.**
 
-Al final, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo **Oauth Request** a "None" y volver a realizar el deploy.
+Al final, volvemos al Api Gateway, y dentro de method request, debemos dejar el campo **Oauth Scopes** a "None" y volver a realizar el deploy.
 
 
 ## Resumen
