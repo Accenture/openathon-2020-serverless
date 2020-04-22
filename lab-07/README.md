@@ -114,7 +114,7 @@ Para crear el endpoint, accedemos al API que hemos creado ("API_EVENTS_XXXX"):
 6. Hacemos click en *Method request*.
 7. En la sección de settings:
  * En **Authorization**, elegimos el authorizer creado.
- * En **OAuth Scopes**, lo dejamos a "openid"                                                                                  :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
+ * En **OAuth Scopes**, lo dejamos a None.                                                                                
  * En **Request Validator**, lo dejamos a "None".
  * En **API Key Required**, lo dejamos a "True".
 8. Volvemos atrás, y hacemos click en Integration Request:
@@ -144,8 +144,6 @@ Como en el caso de crear eventos, tendriamos que desplegar la API. Después, des
 > Postman copia el accessToken, pero este no nos vale, porque en el mapping template del endpoint, necesitamos obtener el email del usuario, que está en el idToken.
 7. Cerramos la ventana y lo pegamos en el campo *AccessToken*.
 8. Hacemos click en *Send*.
-
-Finalmente, para que nuestro endpoint se pueda utilizar desde nuestra aplicación **Angular**, volvemos al **Api Gateway**, y dentro de method request, **debemos dejar el campo OAuth Request a None**, y después tenemos que desplegar la API. Esto implica que este endpoint no vamos a poder probarlo desde **Postman**.
 
 ## Crear endpoint para recuperar el detalle de un evento(GET /events/{eventid})
 
