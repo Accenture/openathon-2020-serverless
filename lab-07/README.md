@@ -27,6 +27,8 @@ A través de este endpoint se podrán crear nuevos eventos.
 
 [Crear función java >](../lambda-functions-java/CreateEvent)
 
+[Crear función javascript >](../lambda-functions-javascript/CreateEvent)
+
 [Probar función lambda >](Testing_Create_Event.md)
 
 
@@ -94,6 +96,8 @@ Este endpoint nos permitirá obtener los eventos del usuario autenticado.
 
 [Crear función java >](../lambda-functions-java/GetEventsMe)
 
+[Crear función javascript >](../lambda-functions-javascript/GetEventsMe)
+
 [Probar función lambda >](Testing_Get_Events_Me.md)
 
 ### Crear endpoint
@@ -155,6 +159,8 @@ Este endpoint nos permitirá obtener el detalle de un evento por el identificado
 
 [Crear función java >](../lambda-functions-java/GetEventId)
 
+[Crear función javascript >](../lambda-functions-javascript/GetEventId)
+
 [Probar función lambda >](Testing_Get_Events_Id.md)
 
 
@@ -208,6 +214,8 @@ Este endpoint nos permitirá editar un evento.
 
 [Crear función java >](../lambda-functions-java/EditEventId)
 
+[Crear función javascript >](../lambda-functions-javascript/GetEventId)
+
 [Probar función lambda >](Testing_Edit_Event.md)
 
 ### Crear endpoint
@@ -242,6 +250,8 @@ Este endpoint nos permitirá borrar un evento.
 [Crear función python >](../lambda-functions-python/DeleteEventId)
 
 [Crear función java >](../lambda-functions-java/DeleteEventId)
+
+[Crear función javascript >](../lambda-functions-javascript/DeleteEventId)
 
 [Probar función lambda >](Testing_Delete_Event.md)
 

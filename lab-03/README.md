@@ -46,7 +46,9 @@ En este punto seleccionamos como crear muestra función, ya que será distinto s
 
 
 
-[ Crear función EventList en Java >](../lambda-functions-java/EventsList)  
+[ Crear función EventList en Java >](../lambda-functions-java/EventsList)
+
+[ Crear función EventList en Javascript >](../lambda-functions-javascript/EventsList)  
 
 ## Etiquetando la función
 
