@@ -2,7 +2,7 @@
     <img src="../resources/header.png">
 </p>
 
-# Laboratorio 6. Securizar Get Events
+# Laboratorio 6. Securizar Get /events
 
 ## Introducción
 
@@ -31,8 +31,8 @@ Para crear el API Key hacemos los siguientes pasos:
 </p>
 
 3. En el formulario, ponemos un nombre (p. ej. "identification_XXXX", identificando de manera única nuestra API Key) y damos a *Save*.
-4. Nos aparecerá la información del API Key. Si hacemos click en *Show*, podemos ver la clave. 
-   :pushpin: **Guardala, porque la necesitaras más adelante.** 
+4. Nos aparecerá la información del API Key. Si hacemos click en *Show*, podemos ver la clave.
+   :pushpin: **Guardala, porque la necesitaras más adelante.**
 
 Ahora vamos a asociarle un plan de uso al API key:
 
@@ -40,23 +40,23 @@ Ahora vamos a asociarle un plan de uso al API key:
 2. Pinchamos en *Create*.
 3. En el formulario:
       * **Name:** indicamos un nombre significativo (p. ej. "EventsUsagePlan").
-      * **Enable throttling:** lo dejamos habilitado. 
+      * **Enable throttling:** lo dejamos habilitado.
       * **Rate:** 1
       * **Burst:** 1
       * **Enable quota:** lo dejamos habilitado
-      * **Requests per:** 200 per month. 
+      * **Requests per:** 200 per month.
       >Como véis, hemos establecido los límites de peticiones por segundo que pueden recibir y el máximo total que nuestra API admitirá al mes.
 4. Hacemos click en *Next*.
-Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el **Usage Plan**. En nuestro caso solo tenemos un previamente creado ("prod"). 
+Ahora vamos a seleccionar la API y dentro de ella, el deploy stage al que queremos aplicar el **Usage Plan**. En nuestro caso solo tenemos un previamente creado ("prod").
 5. Hacemos click en *Add Api Stage*.
 6. En API, elegimos el nombre de nuestra API.
 7. En Stage, elegimos el stage, ("prod" si hemos seguido las instrucciones anteriores). Hacemos click en el icono de Ok del registro añadido.
 8. Hacemos click en Next.
 9. Hacemos click en Add API Key to Usage Plan.
 10. En name indicamos el nombre de nuestra API key ("identification_XXXX" en nuestro ejemplo) y hacemos click en el icono de *Ok*.
-11. Hacemos click en *done*. 
+11. Hacemos click en *done*.
 
-De esta forma ya tenemos un plan de uso asociado al stage de nuestra API. 
+De esta forma ya tenemos un plan de uso asociado al stage de nuestra API.
 
 ## Creación de un Authorizer
 
@@ -73,7 +73,7 @@ Para poder hacer uso de la autorización a través de Cognito, es necesario crea
 3. En la opción tipo, seleccionamos "Cognito"
 4. En la sección Cognito User Pool introducimos el nombre del pool que hemos creado en cognito.
 5. En Token source (Origen del token), escribimos "Authorization".
-6. Pulsamos Create 
+6. Pulsamos Create
 
 ## GET /events endpoint
 
@@ -83,14 +83,14 @@ Vamos a añadirle la capa de seguridad al endpoint GET /events de nuestra API:
 2. Hacemos click en *Method Request*.
 3. En la sección de settings:
      * En **Authorization** vamos a seleccionar el authorizer creado.
-     
+
      > :warning: **Si no aparece el authorizer que acabas de crear, prueba a recargar la página, o a esperar unos minutos.**
-    
+
      * En **OAuth Scopes**, dejamos "openid"
      :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
      * En **Request Validator**, lo dejamos a "None".
      * En **API Key Required**, lo dejamos a "True".
- 
+
 De esta forma, para usar el endpoint *GET /events*, se va a necesitar el Api key y un token de usuario.
 
 ### Probar endpoint
@@ -143,7 +143,7 @@ Esto nos creará un nuevo entorno en postman llamado "events" con las siguientes
 
 1. **apiKey**: es la api key creada anteriormente
 2. **apiUrl**: es la url de nuestra api deployada. Se puede obtener dentro de nuestra API, pulsando en stages y seleccionando el deploy que hayamos realizado ("prod" si hemos seguido las instrucciones).
-3. **eventid**: es el identificador de algún evento creado en la base de datos. Para obtener uno puedes dirigirte a **DynamoDB**, seleccionar la tabla que hayas creado y en la pestaña "Items" consultar un registro, el campo **id** será el identificador único. 
+3. **eventid**: es el identificador de algún evento creado en la base de datos. Para obtener uno puedes dirigirte a **DynamoDB**, seleccionar la tabla que hayas creado y en la pestaña "Items" consultar un registro, el campo **id** será el identificador único.
 4. **userPoolWebClientId**: es el client id de nuestra app en cognito. Para recuperarlo tenemos que acceder al **User Pool** que hemos creado en Cognito, seleccionar *App Clients* dentro de *General Settings* y allí consultarlo en el campo *App client id*
 5. **cognitoDomain**: es el dominio creado en cognito de nuestra app en el [laboratorio 5](../lab-05). Podemos recuperarlo del user pool de **Cognito**, accediendo a *Domain Name* dentro de *App Integration* y allí recuperar el campo "Domain prefix".
 
@@ -158,7 +158,7 @@ Simplemente hay que editarlas:
 
 3. Indicamos el valor de cada variable
 
-Para probar cada endpoint: 
+Para probar cada endpoint:
 1. Hacemos click en él, desde el menú de la izquierda.
 
 <p align="center">

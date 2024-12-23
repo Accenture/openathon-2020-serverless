@@ -6,19 +6,19 @@
 
 ## Conceptos básicos
 
-En este Openathon VI vamos a ir un paso adelante respecto a los anteriores explorando una nueva forma de hacer arquitectura e implementar soluciones web. Aprovechando todo lo ya aprendido - frontends JavaScript modernos, backends Java cloud-native con microservicios, containerización con Docker - vamos más allá y exploramos el máximo nivel de abstracción posible hoy día con tecnologías nativas de la nube: el enfoque serverless.
+En este Openathon VI vamos a evolucionar la arquitectura de la solución respecto a la utilizada en los anteriores, explorando una nueva forma de soluciones web. Aprovechando todo lo ya aprendido -frontends JavaScript modernos, backends Java cloud-native con microservicios, containerización con Docker- vamos a ir más allá y aprenderemos sobre el máximo nivel de abstracción posible hoy en día, con tecnologías nativas de la nube: el enfoque serverless.
 
-Para aclarar conceptos queremos en primer lugar introducir qué es exactamente cloud-native y cuáles son los distintos niveles de abstracción que nos encontramos en modelos cloud. También describiremos las características fundamentales de una arquitectura serverless y haremos un pequeño repaso a los servicios principales serverless en Amazon Web Services.
+Comenzaremos introduciendo el concepto de cloud-native y los distintos niveles de abstracción que nos encontramos en modelos cloud. También describiremos las características fundamentales de una arquitectura serverless y haremos un pequeño repaso a los principales servicios serverless en Amazon Web Services (AWS).
 
 ## Introducción breve a Cloud-native
 
 Comencemos hablando de qué significa Cloud-native, es decir qué significa ser nativos de la nube.
 
-Cloud-native es un nuevo enfoque de arquitectura para el diseño, construcción y operación de aplicaciones modernas que necesitan adaptarse a un panorama tecnológica de cambio constante y veloz, y condiciones cada vez más desafiantes para los negocios.
+Cloud-native es un nuevo enfoque de arquitectura para el diseño, construcción y operación de aplicaciones modernas que necesitan adaptarse a un panorama tecnológico de cambio constante y veloz, y condiciones cada vez más desafiantes para los negocios.
 
-Las aplicaciones nativas de la nube, <i>cloud-native applications</i>, son aquéllas que se ejecutan sobre plataformas nativas de la nube, típicamente multi-tenant, que se construyen sobre y consumen, servicios nativos proporcionados y gestionados por los proveedores de cloud.
+Las aplicaciones nativas de la nube, <i>*cloud-native applications*, son aquéllas que se ejecutan sobre plataformas nativas de la nube, típicamente multi-tenant, que se construyen sobre y consumen servicios nativos proporcionados y gestionados por los proveedores de cloud.
 
-Es decir: en lugar de montar un servidor en la nube y sobre él instalar un sistema operativo, un servidor web o una base de datos, consumimos un servicio que encontramos en el catálogo de un proveedor y que nos da las capacidades, web, base de datos, las que hagan falta, sin tener que preocuparnos de gestionar máquinas, discos o redes, o cómo se gestionan los accesos, se exponen a Internet o se otorgan permisos. Estableces las necesidades y las políticas, y el proveedor se encarga del resto.
+Es decir: en lugar de montar un servidor en la nube y sobre él instalar un sistema operativo, un servidor web o una base de datos, consumimos un servicio que encontramos en el catálogo de un proveedor y que nos proporciona las capacidades que necesitemos (web, base de datos u otras), sin tener que preocuparnos de gestionar máquinas, discos o redes, o cómo se gestionan los accesos, se exponen a Internet o se otorgan permisos. Se establecen las necesidades y las políticas, y es el proveedor de nube quién se encarga del resto.
 
 Además, las aplicaciones cloud-native se desarrollan con procesos de ciclo de vida del desarrollo que también son cloud-native, con herramientas especialmente adaptadas a este enfoque.
 
@@ -26,7 +26,7 @@ Es decir: en lugar de montar un repositorio de código o un servidor de integrac
 
 Un ejemplo de lo anterior es, por ejemplo, una aplicación que utiliza GitHub como plataforma de ciclo de vida, TravisCI para la integración continua y automatización de los despliegues, que se hacen sobre Amazon Web Services con los servicios Lambda, CloudFront, ElastiCache, y DynamoDB.
 
-Desde un punto de vista de arquitectura, las aplicaciones nativas para la nube se basan sólidamente en prácticas de agilidad y DevOps, y se adhieren a principios de diseño como son: el manifiesto de la aplicación de 12 factores, microservicios, contenedores o serverless.
+Desde un punto de vista de arquitectura, las aplicaciones nativas para la nube se basan sólidamente en prácticas de Agilidad (*Agile*) y DevOps, y se adhieren a principios de diseño tales como: el manifiesto de la aplicación de 12 factores, microservicios, contenedores o serverless.
 
 ## Niveles de abstracción: IaaS, PaaS, CaaS y FaaS
 
@@ -34,11 +34,11 @@ Dentro del mundo cloud existen diferentes niveles de abstracción en función de
 
 ![Niveles de abstracción en cloud](resources/cloud-abstractions.png)
 
-El enfoque IaaS es lo que también se conoce como <i>lift &amp; shift</i>. Sobre la base de recursos de computación virtualizados se construye la infraestructura como un modelo 1:1 de la infraestructura <i>on-premise</i> original. Los bloques de trabajo son servidores, CPU, memoria, discos, adaptadores de red, firewalls, igual que en la infraestructura tradicional. En un enfoque IaaS no se aprovecha todo el potencial de la nube ya que aunque es un enfoque más elástico y que permite abrazar modelos de pago por uso, el grano de la abstracción es muy grueso y no gestiona (ni particiona) más allá del servidor o del disco.
+El enfoque IaaS es lo que también se conoce como <i>*lift & shift*. Sobre la base de recursos de computación virtualizados se construye la infraestructura como un modelo 1:1 de la infraestructura <i>on-premise</i> original. Los bloques de trabajo son servidores, CPU, memoria, discos, adaptadores de red, firewalls, igual que en la infraestructura tradicional. En un enfoque IaaS no se aprovecha todo el potencial de la nube ya que aunque es un enfoque más elástico y que permite abrazar modelos de pago por uso, el grano de la abstracción es muy grueso y no gestiona (ni particiona) más allá del servidor o del disco.
 
 El enfoque que más aprovecha el potencial de la cloud es el de plataforma como servicio: el proveedor da un paso más allá y abstrae aspectos básicos como pueden ser el sistema operativo (actualizaciones, parches), la instalación de una base de datos o las librerías de sistema necesarias para que funcionen las aplicaciones (p.ej. la JVM, los runtime de Node.js o Python, librerías nativas para ejecutar binarios de Go o Rust, etc.).
 
-Sin embargo, en la actualidad este modelo se queda corto ya que dentro del espectro de plataformas como servicio existen niveles de abstracción aun mayores que nos permiten a los desarrolladores centrarnos en las aplicaciones y la lógica de negocio, dejando en las manos del proveedor la gestión de una parte significativa de la arquitectura de aplicación.
+Sin embargo, en la actualidad este modelo se queda corto ya que dentro del espectro de plataformas como servicio existen niveles de abstracción aún mayores que nos permiten a los desarrolladores centrarnos en las aplicaciones y la lógica de negocio, dejando en las manos del proveedor la gestión de una parte significativa de la arquitectura de aplicación.
 
 Existen dos modelos de abstracción fundamentales complementando al modelo PaaS: CaaS (contenedores como servicio) y FaaS (funciones como servicio).
 
@@ -60,17 +60,17 @@ A nivel de escala, una aplicación que se descomponga en decenas de microservici
 
 ## Introducción a Serverless
 
-Entonces: ¿qué es serverless? Serverless es un estilo de arquitectura cloud-native en el que todos los componentes del sistema se ejecutan sobre recursos abstraídos, y gestionados completamente por el proveedor cloud, de forma unificada e integrada como si de una nueva plataforma se tratara.
+Entonces: ¿qué es serverless? Serverless es un estilo de arquitectura cloud-native en el que todos los componentes del sistema se ejecutan sobre recursos abstraídos y gestionados completamente por el proveedor cloud, de forma unificada e integrada como si de una nueva plataforma se tratara.
 
-Serverless incluye FaaS, pero el modelo incluye a muchas otras abstracciones: bases de datos, almacenamiento, APIs, colas de mensajes, servicios de notificación, y muchos otros. Serverless aplica a cualquier componente en la arquitectura de una aplicación.
+Serverless incluye FaaS, pero el modelo incluye a muchas otras abstracciones: bases de datos, almacenamiento, APIs, colas de mensajes, servicios de notificación y muchos otros. Serverless aplica a cualquier componente en la arquitectura de una aplicación.
 
-Existen servidores, por supuesto, y recursos de computación, pero no son visibles al usuario del serverless. Esto simplifica enormemente la definición, aprovisionamiento, despliegue y operaciones de las aplicaciones, como veremos a lo largo de este Openathon.
+Existen servidores, por supuesto, y recursos de computación, pero no son visibles al usuario del serverless. Esto simplifica enormemente la definición, aprovisionamiento, despliegue y operación de las aplicaciones, como veremos a lo largo de este Openathon.
 
-Además, como la mayor parte de los requerimientos no funcionales y la <i>outer architecture</i> están abstraídos, el código de las aplicaciones es mucho más limpio, enfocado en la lógica de negocio.
+Además, como la mayor parte de los requerimientos no funcionales y la <i>*outer architecture*</i> están abstraídos, el código de las aplicaciones es mucho más limpio, enfocado en la lógica de negocio.
 
 Son arquitecturas mucho más seguras, ya que tienen una superficie de ataque mucho menor, en la que no se exponen los recursos de la plataforma sobre la que se ejecutan las aplicaciones.
 
-Finalmente, los modelos serverless exprimen al máximo el modelo de pago por uso, con tablas de precios que llegan al grano más fino posible: número de veces que invocas a un API, tiempo en milisegundos que se ejecuta una función, número de veces que ejecutas una query, número de mensajes que publicas a una cola, etc.
+Finalmente, los modelos serverless exprimen al máximo el modelo de pago por uso, con tablas de precios que llegan al grano más fino posible: número de veces que invocas a una API, tiempo en milisegundos que se ejecuta una función, número de veces que ejecutas una query, número de mensajes que publicas a una cola, etc.
 
 ![Ejemplo de arquitectura serverless](resources/serverless-architecture.png)
 
@@ -88,7 +88,7 @@ Combinando estos servicios serverless podemos construir y operar completamente a
 
 ## Conclusión
 
-Una vez conocidos los conceptos básicos en el modelo serverless, sus principales ventajas y en particular qué servicios vamos a utilizar, iremos avanzando, con la ayuda de los laboratorios prácticos, en la construcción paso a paso de una aplicación completa con front, api, back, datos y seguridad.
+Una vez conocidos los conceptos básicos en el modelo serverless, sus principales ventajas y, en particular, qué servicios vamos a utilizar, iremos avanzando, con la ayuda de los laboratorios prácticos, en la construcción paso a paso de una aplicación completa con front, api, back, datos y seguridad.
 
 [< Página principal ](../README.md)  | [Lab 00 >](../lab-00)
 
