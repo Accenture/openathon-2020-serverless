@@ -2,7 +2,7 @@
     <img src="../resources/header.png">
 </p>
 
-# Laboratorio 7. Completar la API
+# Laboratorio 7. Finalizar la configuración del API Gateway
 
 ## Introducción
 
@@ -12,7 +12,7 @@
 
 En el laboratorio anterior hemos securizado el endpoint que nos devuelve todos los eventos. Ahora vamos a crear y securizar el resto de endpoint:
 
-1. [**Crear endpoint para dar de alta eventos (POST /events)**](#crear-endpoint-para-dar-de-alta-eventos-post-events)
+1.   [**Crear endpoint para dar de alta eventos (POST /events)**](#crear-endpoint-para-dar-de-alta-eventos-post-events)
 2. [**Crear endpoint para obtener los eventos de un usuario (GET /events/me)**](#crear-endpoint-para-obtener-los-eventos-de-un-usuarioget-eventsme)
 3. [**Crear endpoint para recuperar el detalle de un evento (GET /events/{eventid})**](#crear-endpoint-para-recuperar-el-detalle-de-un-eventoget-eventseventid)
 4. [**Crear endpoint para actualizar un evento (PUT /events/{eventid})**](#put-eventseventsid-endpoint)
@@ -44,11 +44,11 @@ Para crear el endpoint, accedemos al API que hemos creado ("API_EVENTS_XXXX"):
 4. Hacemos click en *Method request*.
 5. En la sección de *settings*:
  * En **Authorization**, elegimos el authorizer creado para la API.
- * En **OAuth Scopes**, lo dejamos a "openid". 
+ * En **OAuth Scopes**, lo dejamos a "openid".
  :warning:(Esto solo es por propósitos de testing para usarlo desde Postman. Cuando lo integremos con la app, lo dejaremos a None).:warning:
  * En **Request Validator**, lo dejamos a "None".
  * En **API Key Required**, lo dejamos a "True".
- 
+
 ### Probar endpoint
 
 Lo primero que tenemos que hacer es desplegar la API:
@@ -114,7 +114,7 @@ Para crear el endpoint, accedemos al API que hemos creado ("API_EVENTS_XXXX"):
 6. Hacemos click en *Method request*.
 7. En la sección de settings:
  * En **Authorization**, elegimos el authorizer creado.
- * En **OAuth Scopes**, lo dejamos a None.                                                                                
+ * En **OAuth Scopes**, lo dejamos a None.
  * En **Request Validator**, lo dejamos a "None".
  * En **API Key Required**, lo dejamos a "True".
 8. Volvemos atrás, y hacemos click en Integration Request:
@@ -289,4 +289,3 @@ En este laboratorio, hemos completado el resto de nuestra API. Además, la hemos
 <p align="center">
     <img src="../resources/header.png">
 </p>
-
