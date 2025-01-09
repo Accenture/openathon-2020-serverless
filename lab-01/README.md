@@ -40,19 +40,19 @@ Será necesario seguir los siguientes pasos:
 
 3. En *Table settings*, desmarcamos la opción *default settings*, y establecemos la siguiente configuración:
 
-   * En la sección Secondary indexes, hacemos click en add index:
+   * En la sección Secondary indexes, hacemos click en Create global index:
      * En **partition key**, añadimos "addedBy" y type *String*.
      * En **index-name** lo dejamos como está.
      * En **Projected attributes**, indicamos *ALL*.
-     * Finalmente, hacemos click en *add index*.
+     * Finalmente, hacemos click en *Create index*.
 
    <p align="center">
     <img src="resources/Picture5.png"/>
    </p>
 
-   * En la sección *Read/Write capacity mode*, mantenemos aprovisionado.
-   * En la sección *Auto Scaling*, desmarcamos las opciones *Read Capacity* y *Write Capacity*.
-   * En la sección *Provisioned capacity*, establecemos todo a 1.
+   * En la sección *Read/write capacity settings*, establecemos aprovisionado.
+   * En la sección *Auto Scaling*, seleccionamos Off en *Read Capacity* y *Write Capacity*.
+   * En la sección *Provisioned capacity Units*, establecemos todo a 1.
    * En la sección *Encryption At Rest*, mantenemos *Default*.
 
 <p align="center">

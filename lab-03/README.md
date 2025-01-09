@@ -66,7 +66,7 @@ Para hacerlo debemos acceder al detalle del servicio desde la consola de AWS, si
    * En **Event template** dejamos seleccionado “hello world”.
    * En **Event name** introducimos “ListTest”. Se trata del nombre con el que identificaremos nuestra prueba en el caso que vayamos a crear más de una.
    * Como los datos de entrada no son relevantes para la función podemos dejar los que vienen por defecto.
-   * Pulsamos *Create*.
+   * Pulsamos *Save*.
 2. Una vez creado el evento, podemos pulsar *Test* y comprobar el resultado del funcionamiento de la función:
 
 <p align="center">
