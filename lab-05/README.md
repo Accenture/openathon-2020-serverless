@@ -50,8 +50,10 @@ Para crearlo seguiremos los siguientes pasos:
   <img src="resources/img_3.png">
 </p>
 
-3. AWS estable por defecto un nombre para el pool que renombraremos posteriormente por: “EventAppPool_XXXX” (siendo XXXX el identificador único que estés usando) y selecciona en Application Type *Single Page Application (SPA)*.
-4. En la seccion **Name your application** definimos el nombre de la aplicación “EventAppAngular_XXXX” (siendo XXXX el identificador único que estes usando).
+3. AWS establece por defecto un nombre para el pool que renombraremos posteriormente por: “EventAppPool_XXXX” (siendo XXXX el identificador único que estés usando) y selecciona en Application Type *Single Page Application (SPA)*.
+
+4. En la sección **Name your application** definimos el nombre de la aplicación “EventAppAngular_XXXX” (siendo XXXX el identificador único que estes usando).
+
 5. En la sección **Configure Options / Options for sign-in identifiers**, elegimos "Email address or phone number".
    El resto de las opciones las dejaremos por defecto y pulsaremos en *Create*.
 
@@ -80,7 +82,7 @@ Se ha creado un [User Pool App Client](https://docs.aws.amazon.com/es_es/cognito
    * Obligatoriedad de caracteres especiales, mayúsculas...: por comodidad, quitamos todas.
    El resto de las opciones las dejaremos por defecto y pulsaremos *Save changes*.
 
-10. En el menú de la izquierda, en ** Manage Login**, revisamos si tiene algún estilo de ventana asociado a nuestra app Client. Si no fuera así pulsaremos en  **Create Style** y seleccionando la app Client pulsamos en **Create**. Si todo ha ido bien, debemos navegar a una ventana donde veremos las ventana que se mostrará para hacer login.
+10. En el menú de la izquierda, en **Manage Login**, revisamos si tiene algún estilo de ventana asociado a nuestra app Client. Si no fuera así pulsaremos en  **Create Style** y seleccionando la app Client pulsamos en **Create**. Si todo ha ido bien, debemos navegar a una ventana donde veremos las ventana que se mostrará para hacer login.
 
 11. Debemos copiar y salvar dos datos muy importantes: el **Pool id** (identificación única para el pool creado) y el **Pool ARN** (el Amazon Resource Name para poder acceder a él), los utilizaremos más tarde en nuestra aplicación:
     * **Pool Id**: eu-central-1_XXXXXXXX
